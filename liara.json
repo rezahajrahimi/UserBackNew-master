@@ -1,0 +1,12 @@
+{
+    "app":"pl-back",
+    "laravel":{
+        "phpVersion": "8.1"
+    },
+    "disks":[
+        {
+            "name":"disk1",
+            "mountTo" : "storage"
+        }
+    ]
+}
