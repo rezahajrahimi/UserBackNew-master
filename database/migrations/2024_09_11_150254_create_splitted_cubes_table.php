@@ -15,9 +15,13 @@ return new class extends Migration
     {
         Schema::create('splitted_cubes', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('factory_id')->unsigned();;
-            $table->bigInteger('cube_id')->unsigned();;
+            $table->bigInteger('factory_id')->unsigned();
+            $table->bigInteger('cube_id')->unsigned();
+            // add saw_id wich is the id of the saw that splitted the cube
+            $table->bigInteger('saw_id')->unsigned()->nullable();
             $table->dateTime('splitted_at')->nullable();
+            $table->dateTime('cutted_at')->nullable();
+
             $table->boolean('is_active')->default(true);
             $table->double('weight', 15, 2)->nullable()->default(0.00);
             $table->double('height', 15, 8)->nullable()->default(0.00);
@@ -28,6 +32,7 @@ return new class extends Migration
 
             $table->foreign('factory_id')->references('id')->on('factories')->onDelete('cascade');
             $table->foreign('cube_id')->references('id')->on('cubes')->onDelete('cascade');
+            $table->foreign('saw_id')->references('id')->on('cu_saws')->onDelete('cascade');
 
         });
     }

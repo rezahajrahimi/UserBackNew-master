@@ -131,8 +131,10 @@ Route::middleware(['auth:api'])->group(function () {
     // Splitted Cube
     Route::post('/addSplittedCube', 'SplittedCubeController@create_SplittedCube');
     Route::patch('/updateSplittedCube', 'SplittedCubeController@update_SplittedCube');
+    Route::post('/cuttingSplittedCube', 'SplittedCubeController@add_cutting_SplittedCube');
     Route::delete('/deleteSplittedCube/{splitted_id}', 'SplittedCubeController@delete_SplittedCube');
     Route::get('/getSplittedCubeByCubeId/{cube_id}', 'SplittedCubeController@get_SplittedCube_by_cube_id');
+    Route::get('/removeSplittedCubeCutting/{splitted_id}', 'SplittedCubeController@remove_cutting_SplittedCube');
     //Cluster
     Route::post('/newCluster', 'ClustersController@addCluster');
     Route::post('/editcluster', 'ClustersController@editcluster');
